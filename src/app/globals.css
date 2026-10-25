@@ -18,6 +18,7 @@ h1 { margin: 0; font-family: Georgia, "Yu Mincho", serif; font-size: clamp(31px,
 .primary-button { border: 0; background: var(--green); color: white; border-radius: 8px; padding: 12px 18px; font-weight: 600; font-size: 12px; box-shadow: 0 3px 9px #3e68581e; transition: background .2s, transform .2s; }
 .primary-button:hover { background: #315343; transform: translateY(-1px); }
 .primary-button span { font-size: 17px; vertical-align: -1px; margin-right: 4px; }
+.primary-button:disabled { cursor: not-allowed; opacity: .48; transform: none; }
 .schedule-card { border: 1px solid var(--line); border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 10px 32px #26352b08; }
 .schedule-scroll { overflow-x: auto; }
 .schedule-grid { min-width: 650px; }
@@ -33,10 +34,15 @@ h1 { margin: 0; font-family: Georgia, "Yu Mincho", serif; font-size: clamp(31px,
 .period-heading strong { font-family: Georgia, serif; font-size: 19px; font-weight: 500; }
 .period-heading span { font-size: 9px; color: #9ba59f; }
 .slot { min-width: 0; padding: 8px; border-right: 1px solid var(--line); }
-.course-card { height: 100%; min-height: 84px; padding: 10px 11px; border-radius: 7px; border-left: 3px solid #98b4a2; }
-.course-card h3 { margin: 7px 0 3px; font-size: 12px; line-height: 1.45; }
+.course-card { position: relative; height: 100%; min-height: 84px; padding: 10px 25px 10px 11px; border-radius: 7px; border-left: 3px solid #98b4a2; }
+.course-card h3 { margin: 7px 0 3px; font-size: 12px; line-height: 1.45; overflow-wrap: anywhere; }
 .course-card p, .course-time { margin: 0; color: #77837b; font-size: 9px; }
 .course-time { color: #62776b; }
+.remove-course { position: absolute; top: 5px; right: 5px; width: 22px; height: 22px; border: 0; border-radius: 50%; background: transparent; color: #77837b; font-size: 17px; line-height: 1; opacity: .65; }
+.remove-course:hover, .remove-course:focus-visible { background: #ffffffb8; color: #744d4d; opacity: 1; }
+.add-slot { display: flex; width: 100%; min-height: 84px; align-items: center; justify-content: center; gap: 5px; border: 1px dashed #e1e9e3; border-radius: 7px; background: #fbfcfb; color: #a0aea4; font-size: 9px; transition: border-color .2s, color .2s, background .2s; }
+.add-slot span:first-child { font-size: 15px; }
+.add-slot:hover, .add-slot:focus-visible { border-color: #91b09a; background: #f3f8f4; color: var(--green); }
 .lavender { background: #f1eff8; border-left-color: #9990bd; }.mint { background: #eaf3ed; border-left-color: #79a78c; }.peach { background: #f8f0e7; border-left-color: #c49c70; }.blue { background: #edf3f6; border-left-color: #83a7b9; }.rose { background: #f8eeee; border-left-color: #c68e91; }
 .schedule-footer { display: flex; justify-content: space-between; padding: 14px 19px; color: #8a958e; font-size: 10px; }
 .schedule-footer span:first-child { color: #66766d; }
@@ -50,4 +56,5 @@ footer { margin-top: 34px; text-align: center; font-size: 10px; color: #a0aaa3; 
 .course-form label { display: block; color: #68766e; font-size: 11px; margin-top: 12px; }
 .course-form input, .course-form select { display: block; width: 100%; margin-top: 6px; border: 1px solid var(--line); border-radius: 7px; padding: 10px 11px; outline-color: #93b39f; color: var(--ink); background: #fff; font-size: 12px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }.submit-button { width: 100%; margin-top: 18px; }
+.form-error { margin: 12px 0 0; color: #a04d4d; font-size: 11px; line-height: 1.6; }
 @media (max-width: 680px) { .shell { padding: 0 18px 36px; }.topbar { height: 69px; }.term-pill { font-size: 10px; padding: 8px 10px; }.intro { padding: 40px 0 24px; align-items: start; gap: 15px; flex-direction: column; }.intro .primary-button { align-self: stretch; }.schedule-grid > .day-heading { width: calc((100% - 78px) / 5); }.day-heading { gap: 2px; }.schedule-footer { gap: 8px; flex-direction: column; }.next-step { padding: 18px 16px; align-items: start; }.next-step h2 { font-size: 15px; }.next-step p:last-child { font-size: 10px; }.course-form { margin-top: 0; } }
